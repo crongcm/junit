@@ -1,4 +1,4 @@
-![jmeter](https://github.com/crongcm/test/assets/113030711/1dd4dfab-66fb-4784-aa94-9402873ce750)# test
+# test
 
 # JUnit
 
