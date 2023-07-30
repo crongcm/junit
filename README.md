@@ -53,36 +53,24 @@ junit.jupiter.displayname.generator.default=\
 | @Test                                                                                                                 | Method가 Test Method임을 나타낸다.                                            |
 | @ParameterizedTest                                                                                                    | 매개변수 테스트 (org.junit.jupiter.params.provider.\* Annotation 사용)        |
 | @RepeatedTest                                                                                                         | 반복 실행 테스트                                                              |
-| @TestFactory                                                                                                          | 동적 테스트를 위한 TestFactory                                                |
-| <br/>Return Type으로 반드시 Stream, Collection, Iterator, Single DynamicNode, Array of DynamicNode를 반환해야 합니다. |
-| @TestTemplate                                                                                                         | Provider가 반환하는 호출 컨텍스트의 수에 따라 여러변 호출되도록 설계된 테스트 |
-| <br/>하나 이상의 TestTemplateInvocationContextProvider가 등록된 경우에만 실행                                         |
+| @TestFactory                                                                                                          | 동적 테스트를 위한 TestFactory<br/>Return Type으로 반드시 Stream, Collection, Iterator, Single DynamicNode, Array of DynamicNode를 반환해야 합니다. |
+| @TestTemplate                                                                                                         | Provider가 반환하는 호출 컨텍스트의 수에 따라 여러변 호출되도록 설계된 테스트 <br/>하나 이상의 TestTemplateInvocationContextProvider가 등록된 경우에만 실행 |
 | @DisplayName                                                                                                          | 테스트 클래스나 테스트 메소드에 테스트 완료시 표시 할 이름을 설정             |
 | @DisplayNameGeneration                                                                                                | @DisplayName의 생성 방법을 지정                                               |
 | @TestClassOrder                                                                                                       | 중첩된 @Nested Test Class에 대한 실행 순서를 구성하는데 사용                  |
-| @TestMethodOrder                                                                                                      | Test Class 내부의 Test Method의 순서를 설정                                   |
-| <br/>JUnit4의 @FixMethodOrder와 유사                                                                                  |
+| @TestMethodOrder                                                                                                      | Test Class 내부의 Test Method의 순서를 설정 <br/>JUnit4의 @FixMethodOrder와 유사 |
 | @TestInstance                                                                                                         | Test Instance 수명 주기를 구성하는데 사용                                     |
-| @BeforeEach                                                                                                           | 각각 테스트 메소드가 실행되기전에 실행되어야 하는 메소드를 명시해준다.        |
-
-<br/>@Test , @RepeatedTest , @ParameterizedTest , @TestFactory 가 붙은 테스트 메소드가 실행하기 전에 실행된다.
-<br/>JUnit4 → @Before |
-| @AfterEach | @Test , @RepeatedTest , @ParameterizedTest , @TestFactory 가 붙은 테스트 메소드가 실행되고 난 후 실행된다. JUnit4 → @After |
-| @BeforeAll | 테스트가 시작하기 전 한 번만 실행
-<br/>JUnit4 → @BeforeClass |
-| @AfterAll | 테스트가 완전히 끝난 후 한 번만 실행
-<br/>JUnit4 → @AfterAll |
-| @Nested | 중첩 테스트 클래스, 즉 Inner Class여야만 한다.
-<br/>테스트 인스턴스 라이플사이클이 per-class 로 설정되어 있지 않다면 @BeforeAll , @AfterAll 가 동작안하니 주의하자. |
-| @Tag | 테스트를 필터링할 때 사용, 클래스 또는 메소드레벨에 사용
-<br/>JUnit4 → @Category(Class) |
-| @Disabled | 테스트 클래스나 메소드의 테스트를 비활성화 한다.
-<br/>JUnit4 → @Ignore |
-| @Timeout | 지정된 시간을 초과하는 경우 Test, TestFactory, TestTemplate, Lifecycle Method가 실패한다. 해당 Annotation은 상속 된다. |
-| @ExtendWith | extension을 등록, 이 어노테이션은 상속 된다.
-<br/>JUnit4 → @RunWith(Runner), TestRule, MethodRule |
-| @RegisterExtension | 필드를 통해 extension을 등록한다. 이런 필드는 private이 아니라면 상속 |
-| @TempDir | 필드 주입이나 파라미터 주입을 통해 임시적인 디렉토리를 제공할 때 사용 |
+| @BeforeEach                                                                                                           | 각각 테스트 메소드가 실행되기전에 실행되어야 하는 메소드를 명시해준다. <br/>@Test , @RepeatedTest , @ParameterizedTest , @TestFactory 가 붙은 테스트 메소드가 실행하기 전에 실행된다. <br/>JUnit4 → @Before |
+| @AfterEach														| @Test , @RepeatedTest , @ParameterizedTest , @TestFactory 가 붙은 테스트 메소드가 실행되고 난 후 실행된다. JUnit4 → @After |
+| @BeforeAll														| 테스트가 시작하기 전 한 번만 실행<br/>JUnit4 → @BeforeClass |
+| @AfterAll														| 테스트가 완전히 끝난 후 한 번만 실행<br/>JUnit4 → @AfterAll |
+| @Nested														| 중첩 테스트 클래스, 즉 Inner Class여야만 한다.<br/>테스트 인스턴스 라이플사이클이 per-class 로 설정되어 있지 않다면 @BeforeAll , @AfterAll 가 동작안하니 주의하자. |
+| @Tag															| 테스트를 필터링할 때 사용, 클래스 또는 메소드레벨에 사용<br/>JUnit4 → @Category(Class) |
+| @Disabled														| 테스트 클래스나 메소드의 테스트를 비활성화 한다.<br/>JUnit4 → @Ignore |
+| @Timeout														| 지정된 시간을 초과하는 경우 Test, TestFactory, TestTemplate, Lifecycle Method가 실패한다. 해당 Annotation은 상속 된다. |
+| @ExtendWith														| extension을 등록, 이 어노테이션은 상속 된다.<br/>JUnit4 → @RunWith(Runner), TestRule, MethodRule |
+| @RegisterExtension														| 필드를 통해 extension을 등록한다. 이런 필드는 private이 아니라면 상속 |
+| @TempDir														| 필드 주입이나 파라미터 주입을 통해 임시적인 디렉토리를 제공할 때 사용 |
 
 ### @Test, @DisplayName, @Disabled
 
@@ -137,7 +125,7 @@ class TestStudy {
 
 `Result`
 
-![Untitled](JUnit%20063ec17ad60144a58deda9e16e9e706e/Untitled.png)
+![junit](https://github.com/crongcm/junit/assets/113030711/de90ab5a-70d4-4984-8c15-e8e2094693b0)
 
 ### @TestInstance
 
@@ -294,7 +282,7 @@ class IndicativeSentencesGenerationTestClass {
 
 `Result`
 
-![Untitled](JUnit%20063ec17ad60144a58deda9e16e9e706e/Untitled%201.png)
+![junit-1](https://github.com/crongcm/junit/assets/113030711/fa7d15be-3cd0-48e8-b7e3-7af0451496a9)
 
 ### **@RepeatTest**
 
@@ -431,7 +419,8 @@ class OrderedTest {
 }
 ```
 
-![Untitled](JUnit%20063ec17ad60144a58deda9e16e9e706e/Untitled%202.png)
+![junit-2](https://github.com/crongcm/junit/assets/113030711/f30ee4de-8fc0-4d3f-936f-36e1804738dd)
+
 
 ### @TestMethodOrder
 
@@ -460,7 +449,7 @@ class OrderedTest {
 }
 ```
 
-![Untitled](JUnit%20063ec17ad60144a58deda9e16e9e706e/Untitled%203.png)
+![junit-3](https://github.com/crongcm/junit/assets/113030711/2f9ea6b0-31b8-4efe-82d4-3645b656fc70)
 
 ### @Tag
 
@@ -571,33 +560,20 @@ class DocumentationDemo {
 
 ## Assertions
 
-| Assertions | Description |
-| ---------- | ----------- |
-
-| assertEquals(expected, actual)
-<br/>assertNotEquals(expected, actual) | 예상값과 실제값이 같은지 비교 |
-| assertArrayEquals(expected, actual) | 두 배열이 같은지 비교
-<br/>(두 배열이 모두 null일 경우 동일한 것으로 간주) |
-| assertNull(actual)
-<br/>assertNotNull(actual) | Null인지 확인 |
-| assertSame(expected, actual)
-<br/>assertNotSame(expected, actual) | 두 객체가 같은지 비교
-<br/>(두 객체가 모두 null일 경우 동일한 것으로 간주) |
-| assertTrue(expected, actual)
-<br/>assertFalse(expected, actual) | 특정 조건이 true, false인지 확인 |
-| asertAll(?heading, executables) | excutables에 포함된 assert문들을 비교
-<br/>실행된 전체 테스트의 성공, 실패 결과를 확인 할 수 있다. |
-| assertIterableEquals(expected, actual) | 순서와 return value가 일치하는 iterble 요소를 비교
-<br/>동일한 타입이 아니어도 순서와 값만 일치하면 된다. |
-| assertLinesMatch(expected, actual) | 1. 예상값과 실제값이 일치하는지 비교
-<br/>2. 예상값(정규표헌식)과 실제값이 String.matches()일치 하는지 확인
-<br/>3. check if the expected line is a fast-forward marker. If yes apply fast-forward and repeat the algorithm from the step 1 |
-| assertThrows(expectedType, exception) | 예상 exception Type과 발생한 예외를 비교 |
-| assertTimeout(expected, actual) | 예상 시간동안 테스트가 성공하는지 여부
-<br/>해당 테스트가 종료될때까지 성공여부를 알 수 없다. |
-| assertTimeoutPreemptively(expected, actual) | assertTimeout과 동일한 비교
-<br/>예상시간을 초과하면 테스트를 바로 실패한다. |
-| fail(message) | 테스트를 실패하게 만든다. |
+| Assertions								| Description 							|
+| --------------------------------------------------------------------- | ------------------------------------------------------------- |
+| assertEquals(expected, actual)<br/>assertNotEquals(expected, actual) 	| 예상값과 실제값이 같은지 비교 					|
+| assertArrayEquals(expected, actual) 					| 두 배열이 같은지 비교<br/>(두 배열이 모두 null일 경우 동일한 것으로 간주) 	|
+| assertNull(actual)<br/>assertNotNull(actual) 				| Null인지 확인 							|
+| assertSame(expected, actual)<br/>assertNotSame(expected, actual) 	| 두 객체가 같은지 비교<br/>(두 객체가 모두 null일 경우 동일한 것으로 간주) 	|
+| assertTrue(expected, actual)<br/>assertFalse(expected, actual) 	| 특정 조건이 true, false인지 확인 					|
+| asertAll(?heading, executables) 					| excutables에 포함된 assert문들을 비교<br/>실행된 전체 테스트의 성공, 실패 결과를 확인 할 수 있다. |
+| assertIterableEquals(expected, actual) 				| 순서와 return value가 일치하는 iterble 요소를 비교<br/>동일한 타입이 아니어도 순서와 값만 일치하면 된다. |
+| assertLinesMatch(expected, actual) 					| 1. 예상값과 실제값이 일치하는지 비교<br/>2. 예상값(정규표헌식)과 실제값이 String.matches()일치 하는지 확인<br/>3. check if the expected line is a fast-forward marker. If yes apply fast-forward and repeat the algorithm from the step 1 |
+| assertThrows(expectedType, exception) 				| 예상 exception Type과 발생한 예외를 비교 |
+| assertTimeout(expected, actual) 					| 예상 시간동안 테스트가 성공하는지 여부<br/>해당 테스트가 종료될때까지 성공여부를 알 수 없다. |
+| assertTimeoutPreemptively(expected, actual) 				| assertTimeout과 동일한 비교<br/>예상시간을 초과하면 테스트를 바로 실패한다. |
+| fail(message) 							| 테스트를 실패하게 만든다. |
 
 # Mockito
 
