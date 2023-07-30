@@ -1,6 +1,4 @@
-# junit
-
-# Study
+# test
 
 # JUnit
 
@@ -702,3 +700,95 @@ when(mock.someMethod(anyString())).thenAnswer(
  //Following prints "called with arguments: [foo]"
  System.out.println(mock.someMethod("foo"));
 ```
+
+# JMeter
+
+성능 측정 및 부하 테스트 기능을 제공하는 오픈 소스 자바 애플리케이션
+
+### 다양한 형태의 애플리케이션 테스트 지원
+
+- Web - HTTP, HTTPS (Java, NodeJS, PHP, ASP.NET, …)
+- SOAP / REST Webservices
+- FTP
+- Database via JDBC
+- LDAP
+- Message-oriented middleware (MOM) via JMS
+- Mail - SMTP(S), POP3(S) and IMAP(S)
+- Native commands or shell scripts
+- TCP
+- Java Objects
+
+### CLI Mode 지원
+
+| CLI Option | Description |
+| --- | --- |
+| -n | JMeter가 CLI 모드에서 실행되도록 지정 |
+| -t | 테스트 계획이 포함된 JMX 파일의 이름 |
+| -l | 샘플 결과를 기록할 JTL 파일의 이름 |
+| -j | JMeter 실행 로그 파일 이름 |
+| -r | Jmeter 속성 “remote_hosts”로 지정된 서버에서 테스트 실행 |
+| -R | [원격 서버 목록] 지정된 원격 서버에서 테스트 실행 |
+| -g | [CSV 파일 경로] 보고서 대시보드만 생성 |
+| -e | 부하 테스트 후 보고서 대시보드 생성 |
+| -o | 부하테스트 후 보고서 대시보드를 생성할 출력 폴더.
+폴더는 존재하지 않거나 비어있어야 한다. |
+| -H | [프록시 서버 호스트 이름 또는 IP 주소] |
+| -p | [프록시 서버 포트] |
+
+```bash
+jmeter -n -t my_test.jmx -l log.jtl -H my.proxy.server -P 8000
+```
+
+### 주요 개념
+
+- Thread Group : 한 쓰레드 당 유저 한명
+- Sampler : 어떤 유저가 해야 하는 액션
+- Listener : 응답을 받았을때 할 일 (리포팅, 검증, 그래프 그리기 등)
+- Configuration : Sampler 또는 Listener가 사용할 설정 값 (쿠키, JDBC 커넥션 등)
+- Assertion : 응답이 성공적인지 확인하는 방법 (응답 코드, 본문 내용 등)
+
+### Thread Group Config
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc48c7d1-bb20-4c37-a409-1e1822947e6b/Untitled.png)
+
+**Action to be taken after a Sampler error**
+
+Sampler에서 에러 발생시 액션 설정 (Assertion으로 검증)
+
+**Number of Threads (users)**
+
+생성할 쓰레드의 수 (가상 유저 수)
+
+**Ramp-up period (seconds)**
+
+한번의 실행을 몇 초 동안 완료 시킬 것인지 설정
+
+**Loop Count**
+
+반복하고자 하는 횟수, Infinite (무제한)
+
+### Sampler Config (HTTP Request)
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2797541d-decd-4ed9-abde-4ed42a0d0494/Untitled.png)
+
+### Listener Config
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fafe863d-170f-40e9-ba32-dd34236008b4/Untitled.png)
+
+### Configuration
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d089bc60-b77a-4345-9eaf-166bc76f2a20/Untitled.png)
+
+### Assertion Config
+
+Response Assertion
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d33c8afb-f972-49ca-be50-2f7c8aaafd04/Untitled.png)
+
+JSON Assertion
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/861bd3e3-f92c-4e05-b17c-a4d23fa89cc1/Untitled.png)
+
+# Reference
+
+[더 자바, 애플리케이션을 테스트하는 다양한 방법](https://www.inflearn.com/course/the-java-application-test)
